@@ -16,7 +16,7 @@ class Layout extends React.Component {
       <>
         <Menu
           className="burger-menu"
-          isOpen={true}
+          isOpen={this.state.isOpen}
           side={"left"}
           selectedKey={"entry"}
           onClose={() => {

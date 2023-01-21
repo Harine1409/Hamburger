@@ -26,6 +26,7 @@ class Logincomponent extends React.Component {
   passwordtoggle = () => {
     let { passwordshow } = this.state;
     if (passwordshow == "password") this.setState({ passwordshow: "text" });
+    else this.setState({ passwordshow: "password" })
   };
   onLoginClick = () => {
     const userData = {
