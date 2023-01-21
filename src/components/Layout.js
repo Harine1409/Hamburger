@@ -32,7 +32,6 @@ class Layout extends React.Component {
           <Item itemKey={"user"} text={"User Center"}></Item>
           <SubMenu isOpen={false} title="Union Management">
             <Item
-            onClick={(e) => {alert("Gello")}}
               itemKey={"notice"}
               text={"Announcement"}
             ></Item>
