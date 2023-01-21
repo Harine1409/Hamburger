@@ -1,0 +1,161 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  /* Position and sizing of burger button */
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 36px;
+    top: 36px;
+  }
+  
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #373a47;
+  }
+  
+  /* Color/shape of burger icon bars on hover*/
+  .bm-burger-bars-hover {
+    background: #a90000;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+  }
+  
+  /*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+    background: #373a47;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+  }
+  
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .logindiv {
+    position: absolute;
+    top: 50;
+    top: 30%;
+    left: 35%;
+  }
+  .loginbtn {
+    margin: 2%;
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  
+  .bar-chart,
+  .container,
+  .grid {
+    margin-top: 50px;
+    margin-left: 100px;
+  }
+  
+  .textboxarea {
+    margin: 15px;
+  }
+  .gridmain {
+    grid-template-rows: 32px repeat(1, 33px);
+    --rdg-header-row-height: 35px;
+    --rdg-summary-row-height: 35px;
+    --rdg-sign: 1;
+    grid-template-columns: 221.875px 457.562px 457.562px;
+    margin-left: 20%;
+    margin-right: 10%;
+    margin-top: 2%;
+  }
+  .titlemain {
+    text-align: center;
+  }
+  .table {
+    background-color: #acaddb;
+    max-width: 50%;
+    position: absolute;
+    left: 30%;
+  }
+  .editbtn {
+    border: none;
+    border-radius: 5px;
+    background-color: #218521;
+    color: white;
+  }
+  .deletebtn {
+    border: none;
+    border-radius: 5px;
+    background-color: #dd3737;
+    color: white;
+  }
+  
+  .logoutbtn {
+    float: right;
+    margin-right: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0e0e18;
+    color: white;
+    margin-top: 10px;
+  }
+  .logindiv {
+    background-color: #ede8e8;
+    border-radius: 15px;
+  }
+  .eyeslashed {
+    position: absolute;
+    top: 53%;
+    left: 87%;
+    background: none;
+    border: none;
+  }
+  .eyelashed:hover {
+    background: none;
+  }
+  .eyefill {
+    color: grey;
+  }
+  
+  #chart {
+    display: flex;
+    position: absolute;
+    left: 35%;
+    top: 35%;
+    width: 32%;
+  }
+  
