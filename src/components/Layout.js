@@ -7,14 +7,19 @@ class Layout extends React.Component {
   constructor() {
     super();
     this.state = {
-      isOpen: false
+      isOpen: true
     };
+  }
+
+  open(key){
+    alert("he")
   }
 
   render() {
     return (
       <>
         <Menu
+        onClick={this.open}
           className="burger-menu"
           isOpen={this.state.isOpen}
           side={"left"}
@@ -23,10 +28,11 @@ class Layout extends React.Component {
             this.setState({ isOpen: false });
           }}
         >
-          <Item itemKey={"manage"} text={"User Management"}></Item>
+         <Item itemKey={"manage"} text={"User Management"}></Item>
           <Item itemKey={"user"} text={"User Center"}></Item>
           <SubMenu isOpen={false} title="Union Management">
             <Item
+            onClick={(e) => {alert("Gello")}}
               itemKey={"notice"}
               text={"Announcement"}
             ></Item>
