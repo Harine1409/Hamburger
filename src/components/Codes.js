@@ -1,6 +1,8 @@
 import React from "react";
 import recycle from "../assests/recycle.png";
 import { Modal, Button } from "react-bootstrap";
+import Loader from "./Loader.js"
+
 
 class Codescomponent extends React.Component {
   constructor(props) {
@@ -130,6 +132,7 @@ class Codescomponent extends React.Component {
   render() {
     return (
       <>
+      {this.state.loading ? <Loader color={'#3d5e61'} background={'rgba(255,255,255,.5)'} /> : ""}
         <Modal show={this.state.modal}>
           <Modal.Header closeButton onClick={this.CloseinitModal}>
             <Modal.Title>
