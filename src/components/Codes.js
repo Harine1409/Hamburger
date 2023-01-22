@@ -40,9 +40,9 @@ class Codescomponent extends React.Component {
       ActionIndex: -1,
       CurrentItem: "",
       loading: true,
-      CurrentAddItem:{},
-      Addedlanguage:'',
-      Addedname:''
+      CurrentAddItem: {},
+      Addedlanguage: '',
+      Addedname: ''
     };
   }
 
@@ -133,35 +133,34 @@ class Codescomponent extends React.Component {
     this.setState({ List });
   };
   //add data
-  nameadd= (e) => {
+  nameadd = (e) => {
     let { Addedname } = this.state;
     Addedname = e.target.value;
     this.setState({ Addedname });
   };
 
-  languageadd= (e) => {
+  languageadd = (e) => {
     let { Addedlanguage } = this.state;
     Addedlanguage = e.target.value;
     this.setState({ Addedlanguage });
   };
   OkAddinitModal = () => {
-    debugger;
-     let { List ,Addedname,Addedlanguage} = this.state;
-     if(Addedname=='' && Addedlanguage==''){
-      toast.error("please fill all fields")
-     }
-    // let addon = {}
-    // addon = { "id": 3, "selected": false, "name": {Addedname}, "language": {Addedlanguage}, "image": recycle }
-    // List.push(addon)
-    // this.setState({ List })
-    // this.setState({ addmodal: false })
-  };
-  CloseAddinitModal = () => {
-    this.setState({ addmodal: false });
+    let { List, Addedname, Addedlanguage } = this.state;
+    if(Addedname=='' && Addedlanguage==''){
+     toast.error("please fill all fields")
+    }
+    else{
+      let addon = {}
+      addon = { "id": List.length + 1, "selected": false, "name": Addedname, "language": Addedlanguage, "image": recycle }
+      List.push(addon)
+      this.setState({ List })
+      this.setState({ addmodal: false })
+    }
+  
   };
   HandleaddData = () => {
     this.setState({ addmodal: true })
-  
+
   }
   componentDidMount = () => {
     setTimeout(() => {
@@ -181,7 +180,7 @@ class Codescomponent extends React.Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            
+
             <div>
               Name:{" "}
               <input
@@ -202,7 +201,7 @@ class Codescomponent extends React.Component {
                 type="text"
               />
             </div>
-            
+
           </Modal.Body>
           <Modal.Footer>
             <Button
