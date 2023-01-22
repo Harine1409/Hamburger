@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.5",
     "@syncfusion/ej2-base": "^20.4.44",
     "@syncfusion/ej2-grids": "^20.4.44",
     "@syncfusion/ej2-react-base": "^20.4.42",
