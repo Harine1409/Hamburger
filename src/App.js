@@ -10,6 +10,7 @@ import "./styles.css";
 
 export default function App() {
   return (
+    <div className="RoutesArea">
     <Routes>
       <Route path="/" element={<Logincomponent />} />
       <Route path="/forgotpassword" element={<Forgotpassword />} />
@@ -20,5 +21,6 @@ export default function App() {
         <Route path="/home/grid" element={<Gridcomponent />} />
       </Route>
     </Routes>
+    </div>
   );
 }

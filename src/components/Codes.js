@@ -37,7 +37,7 @@ class Codescomponent extends React.Component {
       Type: "",
       ActionIndex: -1,
       CurrentItem: "",
-      loading: true
+      loading: false
     };
   }
 
