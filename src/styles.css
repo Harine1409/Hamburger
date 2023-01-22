@@ -297,3 +297,6 @@ div {
     color: white;
     display: grid;
 }
+.addbtn{
+  margin-left: 30%;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ColumnDirective, ColumnsDirective, Edit, Freeze, GridComponent, Inject } from '@syncfusion/ej2-react-grids';
-import Loader from "./Loader.js"
+import Loader from "./Loader.js";
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 class Gridcomponent extends React.Component {
 
     constructor(props) {
@@ -12,11 +13,14 @@ class Gridcomponent extends React.Component {
     }
     componentDidMount = () => {
         setTimeout(() => {
-          this.setState({ loading: false })
-    
-        }, 1000);
-      };
+            this.setState({ loading: false })
 
+        }, 1000);
+    };
+ addRow = () => {
+        let instance = document.getElementById('Grid').ej2_instances[0];
+        instance.addRecord({ OrderID: 3232, CustomerID: 'ALKIT', EmployeeID: 6, Freight: 40, ShipName: 'Belgium' }, 2);
+    };
     render() {
         const editOptions = { allowEditing: true, allowAdding: true, allowDeleting: true };
         let data = [
@@ -50,7 +54,7 @@ class Gridcomponent extends React.Component {
             {
                 OrderID: 'No. of teabags ', CustomerID: 'GB22'
             },
-            
+
         ];
         return (
             <>

@@ -128,6 +128,14 @@ class Codescomponent extends React.Component {
     CurrentItem.language = e.target.value;
     this.setState({ CurrentItem });
   };
+  HandleaddData = () => {
+
+    let { List } = this.state;
+    let addon = {}
+    addon = { "id": 3, "selected": false, "name": "harine", "language": "tamil", "image": recycle }
+    List.push(addon)
+    this.setState({ List })
+  }
   componentDidMount = () => {
     setTimeout(() => {
       this.setState({ loading: false })
@@ -193,6 +201,7 @@ class Codescomponent extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
+              <button className="addbtn" onClick={(e) => this.HandleaddData()}>add</button>
               <table className="table">
                 <thead>
                   <tr>
