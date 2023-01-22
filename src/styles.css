@@ -92,12 +92,15 @@
   }
   
   .bar-chart,
-  .container,
+
   .grid {
     margin-top: 50px;
     margin-left: 100px;
   }
-  
+  .container{
+    margin-top: 0px;
+    margin-left: 100px;
+  }
   .textboxarea {
     margin: 15px;
   }
@@ -299,4 +302,10 @@ div {
 }
 .addbtn{
   margin-left: 30%;
+  background-color: #3d3c5e;
+  border: none;
+  color: white;
+  width: 75px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
