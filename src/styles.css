@@ -220,3 +220,7 @@ td.p-editable-column {
 tr {
   border: 2px solid grey;
 }
+
+.position {
+  padding: 21px 30px;
+}
