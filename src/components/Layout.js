@@ -3,6 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import { Menu, SubMenu, Item } from "burger-menu";
 import menu from "../assests/menu.png";
 import "burger-menu/lib/index.css";
+
 import logout from '../assests/icons8-logout-rounded-48 (1).png';
 import Header from './Header';
 class Layout extends React.Component {
@@ -10,7 +11,8 @@ class Layout extends React.Component {
     super();
     this.state = {
       isOpen: true,
-      selectedItem: "grid"
+      selectedItem: "grid",
+      modal:false
     };
   }
 
@@ -20,19 +22,20 @@ class Layout extends React.Component {
 
     }
   }
-
+ 
   open = (key) => {
     this.setState({ selectedItem: key.itemKey });
     window.location.href = `/home/${key.itemKey}`
   }
   Handlelogout() {
-    window.location.assign("/");
+    debugger;
+    this.setState({modal:true})
   }
   render() {
     return (
       <>
       <Header/>
-        
+     
         <img src={menu} className="Position" onClick={(e) => this.setState({ isOpen: !this.state.isOpen })}></img>
 
         <Menu

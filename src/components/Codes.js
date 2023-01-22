@@ -155,6 +155,7 @@ class Codescomponent extends React.Component {
       List.push(addon)
       this.setState({ List })
       this.setState({ addmodal: false })
+      toast.success('Data added successfully')
     }
   
   };
@@ -223,7 +224,7 @@ class Codescomponent extends React.Component {
           </Modal.Footer>
         </Modal>
         <Modal show={this.state.modal}>
-          <Modal.Header closeButton onClick={this.CloseinitModal}>
+          <Modal.Header>
             <Modal.Title>
               {this.state.Type === "edit" ? "Edit" : "Delete"}
             </Modal.Title>
