@@ -306,3 +306,10 @@ div {
   border-radius: 5px;
   margin-bottom: 10px;
 }
+
+.Homebutton {
+  background-color: transparent;
+  text-decoration: underline;
+  border: none;
+  color: rgb(115, 136, 230);
+}

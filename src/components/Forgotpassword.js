@@ -44,7 +44,7 @@ class Forgotpassword extends React.Component {
                     type="email"
                     name="email"
                     placeholder="Enter your Email Id"
-                    value={this.state.username}
+                    value={this.state.email}
                     onChange={(e) => this.onChange(e)}
                   />
                   <FormControl.Feedback type="invalid"></FormControl.Feedback>
@@ -57,6 +57,8 @@ class Forgotpassword extends React.Component {
               >
                 submit
               </Button>
+              <br></br>
+              <button onClick={(e)=>{window.location.href="/"}} className="Homebutton" type="button">Back to home</button>
             </Col>
           </Row>
         </Container>
