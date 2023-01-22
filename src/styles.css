@@ -243,7 +243,7 @@ tr {
 .gridmain{
   position: absolute;
   left: 14%;
-  max-width: 37%;
+  max-width: 50%;
   top: 23%;
 }
 .headermain{
