@@ -2,7 +2,8 @@ import React from "react";
 import recycle from "../assests/recycle.png";
 import { Modal, Button } from "react-bootstrap";
 import Loader from "./Loader.js"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Codescomponent extends React.Component {
   constructor(props) {
@@ -145,13 +146,18 @@ class Codescomponent extends React.Component {
   };
   OkAddinitModal = () => {
     let { List, Addedname, Addedlanguage } = this.state;
-    let addon = {}
-    addon = { "id": List.length + 1, "selected": false, "name": Addedname, "language": Addedlanguage, "image": recycle }
-    List.push(addon)
-    this.setState({ List })
-    this.setState({ addmodal: false })
+    if(Addedname=='' && Addedlanguage==''){
+     toast.error("please fill all fields")
+    }
+    else{
+      let addon = {}
+      addon = { "id": List.length + 1, "selected": false, "name": Addedname, "language": Addedlanguage, "image": recycle }
+      List.push(addon)
+      this.setState({ List })
+      this.setState({ addmodal: false })
+    }
+  
   };
-
   HandleaddData = () => {
     this.setState({ addmodal: true })
 
@@ -165,10 +171,10 @@ class Codescomponent extends React.Component {
   render() {
     return (
       <>
-
+ <ToastContainer />
         {this.state.loading ? <Loader color={'#3d5e61'} background={'rgba(255,255,255,.5)'} /> : ""}
         <Modal show={this.state.addmodal}>
-          <Modal.Header closeButton onClick={this.CloseinitModal}>
+          <Modal.Header>
             <Modal.Title>
               Add Data
             </Modal.Title>
@@ -201,7 +207,7 @@ class Codescomponent extends React.Component {
             <Button
               variant="danger"
               onClick={(e) => {
-                this.CloseinitModal();
+                this.CloseAddinitModal();
               }}
             >
               Close
