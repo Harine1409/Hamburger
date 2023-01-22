@@ -32,7 +32,7 @@ class Layout extends React.Component {
       <>
         <div className="headermain">
           <h1 className="dashboardhead">DASHBOARD</h1>
-          <img src={logout} className="logoutbtn" onClick={this.Handlelogout} />
+          <button className="logoutbtn" onClick={this.Handlelogout}>Logout </button>
         </div>
         <img src={menu} className="Position" onClick={(e) => this.setState({ isOpen: !this.state.isOpen })}></img>
 

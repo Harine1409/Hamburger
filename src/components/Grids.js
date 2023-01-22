@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { ColumnDirective, ColumnsDirective, Edit, Freeze, GridComponent, Inject } from '@syncfusion/ej2-react-grids';
 import Loader from "./Loader.js";
+import { registerLicense } from '@syncfusion/ej2-base';
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
+registerLicense('Mgo+DSMBaFt/QHRqVVhjVFpGaV1DQmFJfFBmTWlde1R1fUU3HVdTRHRcQlxhS35bckBjWX5XcHQ=;Mgo+DSMBPh8sVXJ0S0J+XE9HflRAQmFIYVF2R2BJd1R0cF9DaUwgOX1dQl9gSX9RdEVrXXpecHZUR2A=;ORg4AjUWIQA/Gnt2VVhkQlFadVdJX3xLf0x0RWFab1Z6cFFMZVVBNQtUQF1hSn5SdEdjUXtbcHRXRGVc;OTgzNDUwQDMyMzAyZTM0MmUzMFhjUURDS1dENnJhZ0pQaFdlYm11OVI5ZHRxNGdOTE1ma2VYUWxRTkdNZHc9;OTgzNDUxQDMyMzAyZTM0MmUzMGdObEplSU5pVWxKZENrQTZhTkRoU3l4cGVJQ2MweTV4RWJHVnppY2lkM0E9;NRAiBiAaIQQuGjN/V0Z+WE9EaFxKVmFWfFJpR2NbfE54flFCallYVAciSV9jS31Td0dhWXdadXRVRGheUQ==;OTgzNDUzQDMyMzAyZTM0MmUzMGtablRabjlJR3Q4Y1A1SnptZGVXWDVPeU1oSnFVWDhjMUl3OFRNekYwZVE9;OTgzNDU0QDMyMzAyZTM0MmUzMGR0V05INWRmYktXYlFzS1RxL2hwSVQ2N2lUN2RDbWl0UnFMb2lxSjMrSk09;Mgo+DSMBMAY9C3t2VVhkQlFadVdJX3xLf0x0RWFab1Z6cFFMZVVBNQtUQF1hSn5SdEdjUXtbcHRWQmFb;OTgzNDU2QDMyMzAyZTM0MmUzMFB6VC9BbVV6WnBBTTZVV1R3SFFYYnJvNWd2cVNYZlBOQyt4ekdNT1hZck09;OTgzNDU3QDMyMzAyZTM0MmUzMFg4OWtUaVc2YXcwdStFY3J2RC9TZUN0M3pCanNSUm5uaFdNSmViSmZLak09;OTgzNDU4QDMyMzAyZTM0MmUzMGtablRabjlJR3Q4Y1A1SnptZGVXWDVPeU1oSnFVWDhjMUl3OFRNekYwZVE9');
 class Gridcomponent extends React.Component {
 
     constructor(props) {
