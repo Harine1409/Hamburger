@@ -137,14 +137,12 @@
   }
   
   .logoutbtn {
-    float: right;
-    margin-right: 10px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    margin-top: 10px;
-    height: 41px;
-    width: 41px;
+border: none;
+background-color: transparent;
+text-decoration: underline;
+color: white;
+padding: 15px;
+font-size: 20px;
   }
   .logindiv {
     background-color: #ede8e8;
@@ -245,7 +243,7 @@ tr {
 .gridmain{
   position: absolute;
   left: 14%;
-  max-width: 37%;
+  max-width: 50%;
   top: 23%;
 }
 .headermain{

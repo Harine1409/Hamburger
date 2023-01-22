@@ -14,8 +14,8 @@ class Header extends React.Component {
     return (
       <>
          <div className="headermain">
-          <h1 className="dashboardhead">DASHBOARD</h1>
-          <img src={logout} className="logoutbtn" onClick={this.Handlelogout} />
+          <h1 className="dashboardhead">{window.location.pathname && window.location.pathname.split("/home/") ? `${window.location.pathname.split("/home/")[1].toUpperCase()} MODULE`:"MODULE"}</h1>
+          <button className="logoutbtn" onClick={this.Handlelogout} >Logout </button>
         </div>
       </>
     );
