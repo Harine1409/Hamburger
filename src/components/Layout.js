@@ -3,7 +3,8 @@ import { Outlet, Link } from "react-router-dom";
 import { Menu, SubMenu, Item } from "burger-menu";
 import menu from "../assests/menu.png";
 import "burger-menu/lib/index.css";
-import logout from '../assests/icons8-logout-rounded-48 (1).png'
+import logout from '../assests/icons8-logout-rounded-48 (1).png';
+import Header from './Header';
 class Layout extends React.Component {
   constructor() {
     super();
@@ -30,10 +31,8 @@ class Layout extends React.Component {
   render() {
     return (
       <>
-        <div className="headermain">
-          <h1 className="dashboardhead">DASHBOARD</h1>
-          <button className="logoutbtn" onClick={this.Handlelogout}>Logout </button>
-        </div>
+      <Header/>
+        
         <img src={menu} className="Position" onClick={(e) => this.setState({ isOpen: !this.state.isOpen })}></img>
 
         <Menu
