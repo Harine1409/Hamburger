@@ -169,7 +169,7 @@ class Codescomponent extends React.Component {
 
         {this.state.loading ? <Loader color={'#3d5e61'} background={'rgba(255,255,255,.5)'} /> : ""}
         <Modal show={this.state.addmodal}>
-          <Modal.Header closeButton onClick={this.CloseinitModal}>
+          <Modal.Header>
             <Modal.Title>
               Add Data
             </Modal.Title>
