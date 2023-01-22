@@ -270,8 +270,6 @@ tr {
   background-color: #2b2a42 !important;
 }
 
-element.style {
-}
 .bm-item {
     display: inline-block;
 }
@@ -299,6 +297,7 @@ div {
     display: grid;
 }
 .addbtn{
+  height: 40px;
   margin-left: 30%;
   background-color: #3d3c5e;
   border: none;

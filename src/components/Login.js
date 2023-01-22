@@ -29,8 +29,6 @@ class Logincomponent extends React.Component {
     else this.setState({ passwordshow: "password" })
   };
   onLoginClick = (e) => {
-    debugger;
-
     if (this.state.username == '' && this.state.password == '') {
       toast.error('please enter your username and password')
     }
@@ -81,6 +79,7 @@ class Logincomponent extends React.Component {
                     onChange={this.onChange}
                   />
                   <button
+                  type="button"
                     className="btn btn-primary eyeslashed"
                     onClick={this.passwordtoggle}
                   >
