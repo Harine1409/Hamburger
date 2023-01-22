@@ -34,10 +34,14 @@ class Codescomponent extends React.Component {
       MasterChecked: false,
       SelectedList: [],
       modal: false,
+      addmodal: false,
       Type: "",
       ActionIndex: -1,
       CurrentItem: "",
-      loading: true
+      loading: true,
+      CurrentAddItem:{},
+      Addedlanguage:'',
+      Addedname:''
     };
   }
 
@@ -104,19 +108,7 @@ class Codescomponent extends React.Component {
   CloseinitModal = () => {
     this.setState({ modal: false });
   };
-
-  OkinitModal = () => {
-    let { List } = this.state;
-    this.setState({ modal: false });
-    if (this.state.Type === "edit") {
-      List[this.state.ActionIndex].name = this.state.CurrentItem.name;
-      List[this.state.ActionIndex].language = this.state.CurrentItem.language;
-    } else {
-      List.splice(this.state.ActionIndex, 1);
-    }
-    this.setState({ List });
-  };
-
+  //editinng
   nameEdit = (e) => {
     let { CurrentItem } = this.state;
     CurrentItem.name = e.target.value;
@@ -128,13 +120,42 @@ class Codescomponent extends React.Component {
     CurrentItem.language = e.target.value;
     this.setState({ CurrentItem });
   };
-  HandleaddData = () => {
-
+  OkinitModal = () => {
     let { List } = this.state;
+    this.setState({ modal: false });
+    if (this.state.Type === "edit") {
+      List[this.state.ActionIndex].name = this.state.CurrentItem.name;
+      List[this.state.ActionIndex].language = this.state.CurrentItem.language;
+    } else {
+      List.splice(this.state.ActionIndex, 1);
+    }
+    this.setState({ List });
+  };
+  //add data
+  nameadd= (e) => {
+    let { Addedname } = this.state;
+    Addedname = e.target.value;
+    this.setState({ Addedname });
+  };
+
+  languageadd= (e) => {
+    let { Addedlanguage } = this.state;
+    Addedlanguage = e.target.value;
+    this.setState({ Addedlanguage });
+  };
+  OkAddinitModal = () => {
+    debugger;
+     let { List ,Addedname,Addedlanguage} = this.state;
     let addon = {}
-    addon = { "id": 3, "selected": false, "name": "harine", "language": "tamil", "image": recycle }
+    addon = { "id": 3, "selected": false, "name": {Addedname}, "language": {Addedlanguage}, "image": recycle }
     List.push(addon)
     this.setState({ List })
+    this.setState({ addmodal: false })
+  };
+
+  HandleaddData = () => {
+    this.setState({ addmodal: true })
+  
   }
   componentDidMount = () => {
     setTimeout(() => {
@@ -147,6 +168,55 @@ class Codescomponent extends React.Component {
       <>
 
         {this.state.loading ? <Loader color={'#3d5e61'} background={'rgba(255,255,255,.5)'} /> : ""}
+        <Modal show={this.state.addmodal}>
+          <Modal.Header closeButton onClick={this.CloseinitModal}>
+            <Modal.Title>
+              Add Data
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            
+            <div>
+              Name:{" "}
+              <input
+                id="0"
+                onChange={(e) => {
+                  this.nameadd(e);
+                }}
+                className="textboxarea"
+                type="text"
+              />
+              <br></br> Language{" "}
+              <input
+                id="1"
+                onChange={(e) => {
+                  this.languageadd(e);
+                }}
+                className="textboxarea"
+                type="text"
+              />
+            </div>
+            
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="danger"
+              onClick={(e) => {
+                this.CloseinitModal();
+              }}
+            >
+              Close
+            </Button>
+            <Button
+              variant="dark"
+              onClick={(e) => {
+                this.OkAddinitModal();
+              }}
+            >
+              Add
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Modal show={this.state.modal}>
           <Modal.Header closeButton onClick={this.CloseinitModal}>
             <Modal.Title>
