@@ -144,7 +144,6 @@ class Codescomponent extends React.Component {
     this.setState({ Addedlanguage });
   };
   OkAddinitModal = () => {
-    debugger;
     let { List, Addedname, Addedlanguage } = this.state;
     let addon = {}
     addon = { "id": List.length + 1, "selected": false, "name": Addedname, "language": Addedlanguage, "image": recycle }
