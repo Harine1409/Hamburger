@@ -324,3 +324,7 @@ th.e-headercell {
   padding: 5px;
   background-color: rgb(123, 123, 214);
 }
+.e-grid:not(.e-row-responsive) .e-gridcontent tr.e-row:first-child .e-rowcell {
+  border-top: 0;
+  color: red;
+}
