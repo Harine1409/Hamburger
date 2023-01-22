@@ -299,6 +299,7 @@ div {
     display: grid;
 }
 .addbtn{
+  height: 40px;
   margin-left: 30%;
   background-color: #3d3c5e;
   border: none;
