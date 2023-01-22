@@ -313,3 +313,14 @@ div {
   border: none;
   color: rgb(115, 136, 230);
 }
+
+td.e-rowcell,
+th.e-headercell {
+  border: 1px solid #080808 !important;
+}
+
+
+.e-rowcell:empty{
+  padding: 5px;
+  background-color: rgb(123, 123, 214);
+}
