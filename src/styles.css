@@ -316,9 +316,12 @@ div {
 
 td.e-rowcell,
 th.e-headercell {
+  font-size: 15px !important;
   border: 1px solid #080808 !important;
 }
-
+tr.e-row:nth-child(1) td.e-rowcell:nth-child(1){
+  color: red !important;
+}
 
 .e-rowcell:empty{
   padding: 5px;
