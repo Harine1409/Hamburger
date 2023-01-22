@@ -3,34 +3,41 @@ import { Outlet, Link } from "react-router-dom";
 import { Menu, SubMenu, Item } from "burger-menu";
 import menu from "../assests/menu.png";
 import "burger-menu/lib/index.css";
-
+import logout from '../assests/icons8-logout-rounded-48 (1).png'
 class Layout extends React.Component {
   constructor() {
     super();
     this.state = {
       isOpen: true,
-      selectedItem:"grid"
+      selectedItem: "grid"
     };
   }
 
   componentDidMount() {
-    if(window.location.pathname.split("/home/") && window.location.pathname.split("/home/")[1]) {
-      this.setState({selectedItem:window.location.pathname.split("/home/")[1]})
+    if (window.location.pathname.split("/home/") && window.location.pathname.split("/home/")[1]) {
+      this.setState({ selectedItem: window.location.pathname.split("/home/")[1] })
 
     }
   }
 
   open = (key) => {
-  this.setState({selectedItem:key.itemKey});
-  window.location.href = `/home/${key.itemKey}`
+    this.setState({ selectedItem: key.itemKey });
+    window.location.href = `/home/${key.itemKey}`
   }
-
+  Handlelogout() {
+    window.location.assign("/");
+  }
   render() {
     return (
       <>
-      <img src = {menu} className="Position" onClick={(e)=>this.setState({isOpen:!this.state.isOpen})}></img>
+        <div className="headermain">
+          <h1 className="dashboardhead">DASHBOARD</h1>
+          <img src={logout} className="logoutbtn" onClick={this.Handlelogout} />
+        </div>
+        <img src={menu} className="Position" onClick={(e) => this.setState({ isOpen: !this.state.isOpen })}></img>
+
         <Menu
-        onClick={this.open}
+          onClick={this.open}
           className="burger-menu"
           isOpen={this.state.isOpen}
           side={"left"}
@@ -39,16 +46,14 @@ class Layout extends React.Component {
             this.setState({ isOpen: false });
           }}
         >
-         <Item itemKey={"grid"} text={"Grids"}></Item>
           <Item itemKey={"codes"} text={"Codes"}></Item>
           <Item itemKey={"graph"} text={"Graphs"}></Item>
-          <SubMenu isOpen={false} title="Union Management">
+          <SubMenu isOpen={false} title="Grids">
             <Item
-              itemKey={"notice"}
-              text={"Announcement"}
+              itemKey={"grid"}
+              text={"Create grid"}
             ></Item>
-            <Item itemKey={"union"} text={"Union Inquiries"}></Item>
-            <Item itemKey={"entry"} text={"Entry information"}></Item>
+            <Item itemKey={"grid"} text={"search for a grid"}></Item>
           </SubMenu>
         </Menu>
         <Outlet />

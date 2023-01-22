@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Container,
   Button,
@@ -8,8 +10,6 @@ import {
   Form,
   FormControl
 } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 class Logincomponent extends React.Component {
   constructor() {
     super();
@@ -28,17 +28,32 @@ class Logincomponent extends React.Component {
     if (passwordshow == "password") this.setState({ passwordshow: "text" });
     else this.setState({ passwordshow: "password" })
   };
-  onLoginClick = () => {
-    const userData = {
-      username: this.state.username,
-      password: this.state.password
-    };
+  onLoginClick = (e) => {
+    debugger;
 
-    window.location.href = "/home/codes";
+    if (this.state.username == '' && this.state.password == '') {
+      toast.error('please enter your username and password')
+    }
+    else if (this.state.username == '') {
+      toast.error('please enter your username')
+    }
+    else if (this.state.password == '') {
+      toast.error('please enter your password')
+
+    }
+    else {
+      toast.success('logged in successfully')
+      window.location.href = "/home/codes";
+
+    }
+
+
   };
   render() {
     return (
       <>
+        <ToastContainer />
+
         <Container>
           <Row>
             <Col md="4" className="logindiv">
@@ -100,7 +115,7 @@ class Logincomponent extends React.Component {
               <Button
                 className="loginbtn"
                 color="primary"
-                onClick={this.onLoginClick}
+                onClick={(e) => this.onLoginClick(e)}
               >
                 Login
               </Button>

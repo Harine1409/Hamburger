@@ -1,3 +1,12 @@
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';  
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';  
+@import '../node_modules/@syncfusion/ej2-calendars/styles/material.css';  
+@import '../node_modules/@syncfusion/ej2-dropdowns/styles/material.css';  
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';  
+@import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import "../node_modules/@syncfusion/ej2-react-grids/styles/material.css";
 .App {
     font-family: sans-serif;
     text-align: center;
@@ -107,7 +116,7 @@
   }
   .table {
     background-color: #acaddb;
-    max-width: 50%;
+    max-width: 58%;
     position: absolute;
     left: 30%;
   }
@@ -129,9 +138,10 @@
     margin-right: 10px;
     border: none;
     border-radius: 10px;
-    background-color: #0e0e18;
     color: white;
     margin-top: 10px;
+    height: 41px;
+    width: 41px;
   }
   .logindiv {
     background-color: #ede8e8;
@@ -154,9 +164,9 @@
   #chart {
     display: flex;
     position: absolute;
-    left: 35%;
-    top: 35%;
-    width: 32%;
+    left: 31%;
+    top: 30%;
+    width: 45%;
   }
 
   .menu,
@@ -229,4 +239,61 @@ tr {
   margin-top: -0.7rem;
   margin-left: -0.25rem;
 }
+.gridmain{
+  position: absolute;
+  left: 20%;
+  max-width: 37%;
+  top: 23%;
+}
+.headermain{
+  min-height: 85px;
+    background-color: #3d3c5e;
+    display: flex;
+    justify-content: space-between;
+}
+.dashboardhead{
+  color: white;
+  position: relative;
+  left: 44%;
+}
+.menu-wrap{
+  top: 14.5%;
+  position: fixed;
+  z-index: 1100;
+  width: 300px;
+  height: 100%;
+  right: 100%;
+  transform: translateX(100%) translateZ(0px);
+}
+.bm-item-selected {
+  background-color: #2b2a42 !important;
+}
 
+element.style {
+}
+.bm-item {
+    display: inline-block;
+}
+.bm-item, .sub-item {
+    display: block;
+    padding: 14px 28px;
+    cursor: pointer;
+}
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+div {
+    display: block;
+}
+.menu, .sub-menu {
+    background-color: #747691;
+    color: white;
+    display: grid;
+}

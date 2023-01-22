@@ -1,107 +1,115 @@
 import React, { Component } from 'react';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
-import { InputText } from 'primereact/inputtext';
-import { InputNumber } from 'primereact/inputnumber';
-import { Dropdown } from 'primereact/dropdown';
-import { Button } from 'primereact/button';
-import { Toast } from 'primereact/toast';
-
+import { ColumnDirective, ColumnsDirective, Edit, Freeze, GridComponent, Inject } from '@syncfusion/ej2-react-grids';
+import Loader from "./Loader.js"
 class Gridcomponent extends React.Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
-            products1:[
-              {"id": "1000","code": "f230fh0g3","name": "Bamboo Watch","description": "Product Description","image": "bamboo-watch.jpg","price": 65,"category": "Accessories","quantity": 24,"inventoryStatus": "INSTOCK","rating": 5},
-              {"id": "1001","code": "nvklal433","name": "Black Watch","description": "Product Description","image": "black-watch.jpg","price": 72,"category": "Accessories","quantity": 61,"inventoryStatus": "INSTOCK","rating": 4},
-              {"id": "1002","code": "zz21cz3c1","name": "Blue Band","description": "Product Description","image": "blue-band.jpg","price": 79,"category": "Fitness","quantity": 2,"inventoryStatus": "LOWSTOCK","rating": 3},
-              {"id": "1003","code": "244wgerg2","name": "Blue T-Shirt","description": "Product Description","image": "blue-t-shirt.jpg","price": 29,"category": "Clothing","quantity": 25,"inventoryStatus": "INSTOCK","rating": 5},
-              {"id": "1004","code": "h456wer53","name": "Bracelet","description": "Product Description","image": "bracelet.jpg","price": 15,"category": "Accessories","quantity": 73,"inventoryStatus": "INSTOCK","rating": 4},
-              {"id": "1005","code": "av2231fwg","name": "Brown Purse","description": "Product Description","image": "brown-purse.jpg","price": 120,"category": "Accessories","quantity": 0,"inventoryStatus": "OUTOFSTOCK","rating": 4}
-          ],
-            editingRows: {}
-        };
+            loading: true
+        }
 
-        this.columns = [
-            { field: 'code', header: 'Code' },
-            { field: 'name', header: 'Name' },
-            { field: 'quantity', header: 'Quantity' },
-            { field: 'price', header: 'Price' }
-        ];
-
-        this.statuses = [
-            { label: 'In Stock', value: 'INSTOCK' },
-            { label: 'Low Stock', value: 'LOWSTOCK' },
-            { label: 'Out of Stock', value: 'OUTOFSTOCK' }
-        ];
     }
-
-    textEditor(options) {
-      return <InputText type="text" value={options.value} onChange={(e) => options.editorCallback(e.target.value)} />;
-  }
-
-  priceEditor(options) {
-    return <InputNumber value={options.value} onValueChange={(e) => options.editorCallback(e.value)} mode="currency" currency="USD" locale="en-US" />
-}
-
-    cellEditor(options) {
-      if (options.field === 'price')
-          return this.priceEditor(options);
-      else
-          return this.textEditor(options);
-  }
-
-
-  cellEditor(options) {
-    if (options.field === 'price')
-        return this.priceEditor(options);
-    else
-        return this.textEditor(options);
-  }
-
-  priceBodyTemplate(rowData) {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(rowData.price);
-}
-
-onCellEditComplete(e) {
-  let { rowData, newValue, field, originalEvent: event } = e;
-
-  switch (field) {
-      case 'quantity':
-      case 'price':
-          if (this.isPositiveInteger(newValue))
-              rowData[field] = newValue;
-          else
-              event.preventDefault();
-          break;
-
-      default:
-          if (newValue.trim().length > 0)
-              rowData[field] = newValue;
-          else
-              event.preventDefault();
-          break;
-  }
-}
+    componentDidMount = () => {
+        setTimeout(() => {
+          this.setState({ loading: false })
+    
+        }, 1000);
+      };
 
     render() {
+        const editOptions = { allowEditing: true, allowAdding: true, allowDeleting: true };
+        let data = [
+            {
+                OrderID: 10248, CustomerID: 'VINET', EmployeeID: 5, OrderDate: new Date(8364186e5),
+                ShipName: 'Vins et alcools Chevalier', ShipCity: 'Reims', ShipAddress: '59 rue de l Abbaye',
+                ShipRegion: 'CJ', ShipPostalCode: '51100', ShipCountry: 'France', Freight: 32.38, Verified: !0
+            },
+            {
+                OrderID: 10249, CustomerID: 'TOMSP', EmployeeID: 6, OrderDate: new Date(836505e6),
+                ShipName: 'Toms Spezialitäten', ShipCity: 'Münster', ShipAddress: 'Luisenstr. 48',
+                ShipRegion: 'CJ', ShipPostalCode: '44087', ShipCountry: 'Germany', Freight: 11.61, Verified: !1
+            },
+            {
+                OrderID: 10250, CustomerID: 'HANAR', EmployeeID: 4, OrderDate: new Date(8367642e5),
+                ShipName: 'Hanari Carnes', ShipCity: 'Rio de Janeiro', ShipAddress: 'Rua do Paço, 67',
+                ShipRegion: 'RJ', ShipPostalCode: '05454-876', ShipCountry: 'Brazil', Freight: 65.83, Verified: !0
+            },
+            {
+                OrderID: 10251, CustomerID: 'VICTE', EmployeeID: 3, OrderDate: new Date(8367642e5),
+                ShipName: 'Victuailles en stock', ShipCity: 'Lyon', ShipAddress: '2, rue du Commerce',
+                ShipRegion: 'CJ', ShipPostalCode: '69004', ShipCountry: 'France', Freight: 41.34, Verified: !0
+            },
+            {
+                OrderID: 10252, CustomerID: 'SUPRD', EmployeeID: 4, OrderDate: new Date(8368506e5),
+                ShipName: 'Suprêmes délices', ShipCity: 'Charleroi', ShipAddress: 'Boulevard Tirou, 255',
+                ShipRegion: 'CJ', ShipPostalCode: 'B-6000', ShipCountry: 'Belgium', Freight: 51.3, Verified: !0
+            },
+            {
+                OrderID: 10253, CustomerID: 'HANAR', EmployeeID: 3, OrderDate: new Date(836937e6),
+                ShipName: 'Hanari Carnes', ShipCity: 'Rio de Janeiro', ShipAddress: 'Rua do Paço, 67',
+                ShipRegion: 'RJ', ShipPostalCode: '05454-876', ShipCountry: 'Brazil', Freight: 58.17, Verified: !0
+            },
+            {
+                OrderID: 10254, CustomerID: 'CHOPS', EmployeeID: 5, OrderDate: new Date(8370234e5),
+                ShipName: 'Chop-suey Chinese', ShipCity: 'Bern', ShipAddress: 'Hauptstr. 31',
+                ShipRegion: 'CJ', ShipPostalCode: '3012', ShipCountry: 'Switzerland', Freight: 22.98, Verified: !1
+            },
+            {
+                OrderID: 10255, CustomerID: 'RICSU', EmployeeID: 9, OrderDate: new Date(8371098e5),
+                ShipName: 'Richter Supermarkt', ShipCity: 'Genève', ShipAddress: 'Starenweg 5',
+                ShipRegion: 'CJ', ShipPostalCode: '1204', ShipCountry: 'Switzerland', Freight: 148.33, Verified: !0
+            },
+            {
+                OrderID: 10256, CustomerID: 'WELLI', EmployeeID: 3, OrderDate: new Date(837369e6),
+                ShipName: 'Wellington Importadora', ShipCity: 'Resende', ShipAddress: 'Rua do Mercado, 12',
+                ShipRegion: 'SP', ShipPostalCode: '08737-363', ShipCountry: 'Brazil', Freight: 13.97, Verified: !1
+            },
+            {
+                OrderID: 10257, CustomerID: 'HILAA', EmployeeID: 4, OrderDate: new Date(8374554e5),
+                ShipName: 'HILARION-Abastos', ShipCity: 'San Cristóbal', ShipAddress: 'Carrera 22 con Ave. Carlos Soublette #8-35',
+                ShipRegion: 'Táchira', ShipPostalCode: '5022', ShipCountry: 'Venezuela', Freight: 81.91, Verified: !0
+            },
+            {
+                OrderID: 10258, CustomerID: 'ERNSH', EmployeeID: 1, OrderDate: new Date(8375418e5),
+                ShipName: 'Ernst Handel', ShipCity: 'Graz', ShipAddress: 'Kirchgasse 6',
+                ShipRegion: 'CJ', ShipPostalCode: '8010', ShipCountry: 'Austria', Freight: 140.51, Verified: !0
+            },
+            {
+                OrderID: 10259, CustomerID: 'CENTC', EmployeeID: 4, OrderDate: new Date(8376282e5),
+                ShipName: 'Centro comercial Moctezuma', ShipCity: 'México D.F.', ShipAddress: 'Sierras de Granada 9993',
+                ShipRegion: 'CJ', ShipPostalCode: '05022', ShipCountry: 'Mexico', Freight: 3.25, Verified: !1
+            },
+            {
+                OrderID: 10260, CustomerID: 'OTTIK', EmployeeID: 4, OrderDate: new Date(8377146e5),
+                ShipName: 'Ottilies Käseladen', ShipCity: 'Köln', ShipAddress: 'Mehrheimerstr. 369',
+                ShipRegion: 'CJ', ShipPostalCode: '50739', ShipCountry: 'Germany', Freight: 55.09, Verified: !0
+            },
+            {
+                OrderID: 10261, CustomerID: 'QUEDE', EmployeeID: 4, OrderDate: new Date(8377146e5),
+                ShipName: 'Que Delícia', ShipCity: 'Rio de Janeiro', ShipAddress: 'Rua da Panificadora, 12',
+                ShipRegion: 'RJ', ShipPostalCode: '02389-673', ShipCountry: 'Brazil', Freight: 3.05, Verified: !1
+            },
+            {
+                OrderID: 10262, CustomerID: 'RATTC', EmployeeID: 8, OrderDate: new Date(8379738e5),
+                ShipName: 'Rattlesnake Canyon Grocery', ShipCity: 'Albuquerque', ShipAddress: '2817 Milton Dr.',
+                ShipRegion: 'NM', ShipPostalCode: '87110', ShipCountry: 'USA', Freight: 48.29, Verified: !0
+            }
+        ];
         return (
-            <div className="datatable-editing-demo">
-                <Toast ref={(el) => this.toast = el} />
+            <>
+                {this.state.loading ? <Loader color={'#3d5e61'} background={'rgba(255,255,255,.5)'} /> : ""}
 
-                <div className="card p-fluid tablearea">
-                    <DataTable value={this.state.products1} editMode="cell" className="editable-cells-table" responsiveLayout="scroll">
-                        {
-                            this.columns.map(({ field, header }) => {
-                                return <Column key={field} field={field} header={header} style={{ width: '25%' }} body={field === 'price' && this.priceBodyTemplate}
-                                    editor={(options) => this.cellEditor(options)} onCellEditComplete={this.onCellEditComplete} />
-                            })
-                        }
-                    </DataTable>
-                </div>
-            </div>
+                <div className='gridmain'>
+                    <GridComponent dataSource={data} editSettings={editOptions} height={315}>
+                        <ColumnsDirective>
+                            <ColumnDirective field='OrderID' headerText='Order ID' width='100' textAlign="Right" isPrimaryKey={true} />
+                            <ColumnDirective field='CustomerID' headerText='Customer ID' width='120' />
+                            <ColumnDirective field='OrderID' headerText='Order ID' width='100' textAlign="Right" isPrimaryKey={true} />
+
+                        </ColumnsDirective>
+                        <Inject services={[Edit]} />
+                    </GridComponent></div></>
         );
     }
 }

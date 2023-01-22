@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Container,
   Button,
@@ -8,8 +9,6 @@ import {
   Form,
   FormControl
 } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 class Forgotpassword extends React.Component {
   constructor() {
     super();
@@ -24,15 +23,16 @@ class Forgotpassword extends React.Component {
     if (
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)
     ) {
-      alert("link sent to email successfully");
+      toast.success("link sent to email successfully");
       this.setState({ email: "" });
     } else {
-      alert("please enter a valid email id");
+      toast.error("please enter a valid email id");
     }
   };
   render() {
     return (
       <>
+       <ToastContainer />
         <Container>
           <Row>
             <Col md="4" className="logindiv">

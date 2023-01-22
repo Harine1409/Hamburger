@@ -37,7 +37,7 @@ class Codescomponent extends React.Component {
       Type: "",
       ActionIndex: -1,
       CurrentItem: "",
-      loading: false
+      loading: true
     };
   }
 
@@ -128,11 +128,17 @@ class Codescomponent extends React.Component {
     CurrentItem.language = e.target.value;
     this.setState({ CurrentItem });
   };
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    setTimeout(() => {
+      this.setState({ loading: false })
+
+    }, 1000);
+  };
   render() {
     return (
       <>
-      {this.state.loading ? <Loader color={'#3d5e61'} background={'rgba(255,255,255,.5)'} /> : ""}
+
+        {this.state.loading ? <Loader color={'#3d5e61'} background={'rgba(255,255,255,.5)'} /> : ""}
         <Modal show={this.state.modal}>
           <Modal.Header closeButton onClick={this.CloseinitModal}>
             <Modal.Title>
